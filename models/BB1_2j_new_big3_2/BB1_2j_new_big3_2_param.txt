@@ -1,0 +1,1 @@
+{'input_dim': 42, 'hidden_dim': [84], 'latent_dim': 14, 'Dw': 1.0, 'dis_dim': [300, 200, 100, 50], 'epsilon': 6.0, 'alpha': 65.0, 'power': 1, 'NGAN': 5, 'ND': 7, 'batch_size': 2048, 'Ncycle': 100, 'early_stop': None, 'pretrain_AE': True, 'pretrain_dis': False, 'use_quantile': False, 'Nmodel': 60, 'Nselec': 10, 'Nworker': 4, 'trained': 'single'}
