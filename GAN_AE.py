@@ -104,13 +104,13 @@ class GAN_AE():
         ND : number of discriminant only epochs per training cycle
         Ncycle : Total numbur of training cycle
         batch_size : The batchsize used for training 
-        early_stop : Ignored argument (kept for retro-compatibility with older versions of the code)
         pretrain_AE : specify if the AE should be pretrained separatly before the GAN training
         pretrain_dis : specify if the discriminant should be pretrained separatly before the GAN training
         use_quantile : specify if quantile transformer should be used in addition to the min-max scaler
-        Nmodel : Total number of trained GAN-AE model
-        Nselec : Total number of selected GAN-AE model for averaging
-        Nworker : Maximum number of therads to un in parallel (must be 1 for tensorflow version>1.14.0)
+        early_stop : Ignored argument (kept for retro-compatibility with older versions of the code)
+        Nmodel : Ignored argument (kept for retro-compatibility with older versions of the code)
+        Nselec : Ignored argument (kept for retro-compatibility with older versions of the code)
+        Nworker : Ignored argument (kept for retro-compatibility with older versions of the code)
     '''
     
     def __init__(
@@ -120,7 +120,7 @@ class GAN_AE():
         epsilon=0.2, alpha=None, power=1,
         NGAN=4, ND=10, batch_size=1024, Ncycle=60, early_stop=None, pretrain_AE=False, pretrain_dis=True,
         use_quantile=False,
-        Nmodel=60, Nselec=10, Nworker=4
+        Nmodel=None, Nselec=None, Nworker=None
     ):
         
         # Initialize parameters
@@ -138,9 +138,6 @@ class GAN_AE():
         self.pretrain_AE = pretrain_AE
         self.pretrain_dis = pretrain_dis
         self.use_quantile = use_quantile
-        self.Nmodel = Nmodel
-        self.Nselec = Nselec
-        self.Nworker = Nworker
         
         # Initialize results
         self.AE_weights = []
@@ -844,9 +841,6 @@ class GAN_AE():
         param['pretrain_AE'] = self.pretrain_AE
         param['pretrain_dis'] = self.pretrain_dis
         param['use_quantile'] = self.use_quantile
-        param['Nmodel'] = self.Nmodel
-        param['Nselec'] = self.Nselec
-        param['Nworker'] = self.Nworker
         
         # Check if there is no model to save
         if(self.AE_weights==[]):
@@ -913,9 +907,6 @@ class GAN_AE():
         self.Ncycle = param['Ncycle']
         self.pretran_AE = param['pretrain_AE']
         self.pretrain_dis = param['pretrain_dis']
-        self.Nmodel = param['Nmodel']
-        self.Nselec = param['Nselec']
-        self.Nworker = param['Nworker']
         
         # Ensure retro-compatibility for previous versions saves
         # For that we load the new parameters only if they are present
