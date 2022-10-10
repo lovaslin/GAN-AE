@@ -1,0 +1,11 @@
+{
+    'width_min':3,
+    'width_max':8,
+    'width_step':1,
+    'scan_step':1,
+    'npe':40_000,
+    'nworker':4,
+    'use_sideband':True,
+    'sideband_width':[6, 4],
+    'seed':666
+}

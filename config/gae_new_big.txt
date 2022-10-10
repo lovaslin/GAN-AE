@@ -1,0 +1,15 @@
+{
+    'hidden_dim' : [len(var_list) * 2],
+    'latent_dim' : len(var_list) // 3 ,
+    'dis_dim' : [300, 200, 100, 50],
+    'Ncycle' : 100,
+    'batch_size' : 2048,
+    'epsilon' : 6.0,
+    'alpha' : 65.0,
+    'ND' : 7,
+    'NGAN' : 5,
+    'early_stop' : None,
+    'pretrain_dis' : False,
+    'pretrain_AE' : True,
+    'use_quantile' : False
+}
