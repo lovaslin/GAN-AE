@@ -22,6 +22,10 @@ import json
 from scipy.spatial import distance as sd
 
 
+# Check that the results folder exists
+if not os.path.exists('train_results/'):
+    os.mkdir('train_results/', 0o755)
+
 ## Manage command line argument
 
 # Dict with the argument names and their default values

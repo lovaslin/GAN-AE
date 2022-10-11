@@ -20,6 +20,10 @@ import pyBumpHunter as BH
 
 print('INITIALIZING')
 
+# Check if the results path exits
+if not os.path.exists('apply_results/'):
+    os.mkdir('apply_results/', 0o755)
+
 ## Manage command line argument
 
 # Dict with the argument names and their default values
@@ -67,11 +71,11 @@ GAE = GAN_AE.GAN_AE()
 GAE.load(f"models/{param['model']}/{param['model']}")
 
 # Create a folder for the required percentile cut (if needed)
-if not os.path.exists(f"apply_results/new/sin{param['percent']}"):
-    os.mkdir(f"apply_results/new/sin{param['percent']}", 0o755)
+if not os.path.exists(f"apply_results/sin{param['percent']}"):
+    os.mkdir(f"apply_results/sin{param['percent']}", 0o755)
 
 # Create a folder for the required model (if needed)
-mpath = f"apply_results/new/sin{param['percent']}/{param['model']}"
+mpath = f"apply_results/sin{param['percent']}/{param['model']}"
 if not os.path.exists(mpath):
     os.mkdir(mpath, 0o755)
 
